@@ -19,6 +19,19 @@ This week we will set up AWS account, register in a few services needed to imple
 - [X] Create a free-tier Honeycomb account (https://www.honeycomb.io).
 - [X] Create a free-tier Rollbar account (https://www.rollbar.com).
 
+## AWS Well-Architected Tool
+Review pillars to get involved with architectural best practices.
+
+1. Operational Excellence: https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/welcome.html
+2. Security: https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/welcome.html
+3. Reliability: https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html
+4. Performance Efficiency: https://docs.aws.amazon.com/wellarchitected/latest/performance-efficiency-pillar/welcome.html
+5. Cost Optimization: https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/welcome.html
+6. Sustainability: https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/sustainability-pillar.html
+
+### Appendix: Questions and best practices
+https://docs.aws.amazon.com/wellarchitected/latest/framework/appendix.html
+
 ## Conceptual diagram
 Create the diagram with Lucidchart tool to describe the functionality of what we plan to build during this bootcamp.
 
