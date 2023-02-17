@@ -20,7 +20,7 @@ This week we will set up AWS account, register in a few services needed to imple
 - [X] Create a free-tier Rollbar account (https://www.rollbar.com).
 
 ## Install aws-cli
-There are many options to work with aws-cli.
+There are many options to work with aws-cli. **gitpod manually** is the method that will be implemented.
 
 ### On local machine
 Installing as a normal user following this commands:
@@ -36,9 +36,9 @@ Re-login and command **aws** is available.
 Now is time to configure aws-cli with ENV VARS or aws command:
 
 ```
-$ export AWS_ACCESS_KEY_ID=[AWS_ACCESS_KEY]
-$ export AWS_SECRET_ACCESS_KEY_ID=[AWS_SECRET_ACCESS_KEY]
-$ export AWS_DEFAULT_REGION=[AWS_REGION]
+$ export AWS_ACCESS_KEY_ID="[AWS_ACCESS_KEY]"
+$ export AWS_SECRET_ACCESS_KEY_ID="[AWS_SECRET_ACCESS_KEY]"
+$ export AWS_DEFAULT_REGION="[AWS_REGION]"
 
 or 
 
@@ -60,10 +60,11 @@ $ aws sts get-caller-identity
 ```
 
 ### On gitpod automatically
+We need to use this implementation to keep the changes when the workspace is closed and opened again.
 Installing with a task adding the following in .gitpod.yml:
 
 ```
-task:
+tasks:
   - name: aws-cli
     env:
       AWS_CLI_AUTO_PROMPT: on-partial
@@ -75,7 +76,13 @@ task:
       cd $THEIA_WORKSPACE_ROOT
 ```
 
-Now aws configuration steps are required.
+Now aws configuration steps are required. To keep env variables to later use we have to replace **export** with **gp env***
+
+```
+$ gp env AWS_ACCESS_KEY_ID="[AWS_ACCESS_KEY]"
+$ gp env AWS_SECRET_ACCESS_KEY_ID="[AWS_SECRET_ACCESS_KEY]"
+$ gp env AWS_DEFAULT_REGION="[AWS_REGION]"
+```
 
 ### On gitpod manually
 Installing following this commands on gitpod terminal:
@@ -88,6 +95,7 @@ gitpod /workspace $ unzip awscliv2.zip
 gitpod /workspace $ sudo ./aws/install
 gitpod /workspace $ cd $THEIA_WORKSPACE_ROOT
 ```
+
 Now aws configuration steps are required.
 
 
