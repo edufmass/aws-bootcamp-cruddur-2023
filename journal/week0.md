@@ -19,6 +19,15 @@ This week we will set up AWS account, register in a few services needed to imple
 - [X] Create a free-tier Honeycomb account (https://www.honeycomb.io).
 - [X] Create a free-tier Rollbar account (https://www.rollbar.com).
 
+## Install aws-cli
+
+> curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+> unzip awscliv2.zip
+> cd aws
+> ./install -i ~/.local/aws-cli -b ~/.local/bin
+
+Re-login and command **aws** is available
+
 ## AWS Well-Architected Tool
 Review pillars to get involved with architectural best practices.
 
