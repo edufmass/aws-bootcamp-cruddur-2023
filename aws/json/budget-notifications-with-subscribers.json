@@ -1,0 +1,39 @@
+[
+    {
+        "Notification": {
+            "NotificationType": "ACTUAL",
+            "ComparisonOperator": "GREATER_THAN",
+            "Threshold": 0.01,
+            "ThresholdType": "ABSOLUTE_VALUE",
+            "NotificationState": "OK"
+        },
+        "Subscribers": [
+            {
+                "Address": "suscriber1_email",
+                "SubscriptionType": "EMAIL"
+            },
+            {
+                "Address": "suscriber2_email",
+                "SubscriptionType": "EMAIL"
+            }
+        ]
+    },
+    {
+        "Notification": {
+            "NotificationType": "ACTUAL",
+            "ComparisonOperator": "GREATER_THAN",
+            "Threshold": 50.0,
+            "NotificationState": "OK"
+        },
+        "Subscribers": [
+            {
+                "Address": "suscriber1_email",
+                "SubscriptionType": "EMAIL"
+            },
+            {
+                "Address": "suscriber2_email",
+                "SubscriptionType": "EMAIL"
+            }
+        ]
+    }
+  ]

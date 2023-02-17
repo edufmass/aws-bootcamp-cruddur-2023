@@ -121,3 +121,24 @@ Create the diagram with Lucidchart tool to describe the functionality of what we
 Create the diagram with Lucidchart tool of the CI/CD logical pipeline.
 
 ==todo: add diagram image==
+
+## Budget and notifications
+
+Documentation about creating a budget with aws-cli: https://docs.aws.amazon.com/cli/latest/reference/budgets/create-budget.html
+
+First we need to create two json files: **budget.json** and **budget-notifications-with-subscribers.json**
+There are examples of this files on documentation above.
+Then we need AWS Account Id. Can be obtained from AWS Console or with aws command line:
+
+```
+$ aws sts get-caller-identity --query Account --output text
+```
+
+The next step is to create de budget with aws command line:
+
+```
+$ aws budgets create-budget \
+  --account-id [ACCOUNT_ID] \
+  --budget file://aws/json/budget.json \
+  --notifications-with-suscribers file://aws/json/budget-notifications-with-subscribers.json
+```
