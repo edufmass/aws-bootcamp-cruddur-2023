@@ -19,6 +19,16 @@ This week we will set up AWS account, register in a few services needed to imple
 - [X] Create a free-tier Honeycomb account (https://www.honeycomb.io).
 - [X] Create a free-tier Rollbar account (https://www.rollbar.com).
 
+## Conceptual diagram
+Create the diagram with Lucidchart tool to describe the functionality of what we plan to build during this bootcamp.
+
+==todo: add diagram image==
+
+## Architectural diagram
+Create the diagram with Lucidchart tool of the CI/CD logical pipeline.
+
+==todo: add diagram image==
+
 ## Install aws-cli
 There are many options to work with aws-cli. **gitpod automatically** is the method that will be implemented.
 
@@ -99,36 +109,62 @@ gitpod /workspace $ cd $THEIA_WORKSPACE_ROOT
 
 Now aws configuration steps are required.
 
+## Create SNS Topic & Alarm
 
-## AWS Well-Architected Tool
-Review pillars to get involved with architectural best practices.
+### SNS Topic
+Documentation about creating sns topic: https://docs.aws.amazon.com/cli/latest/reference/sns/create-topic.html
 
-1. Operational Excellence: https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/welcome.html
-2. Security: https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/welcome.html
-3. Reliability: https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html
-4. Performance Efficiency: https://docs.aws.amazon.com/wellarchitected/latest/performance-efficiency-pillar/welcome.html
-5. Cost Optimization: https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/welcome.html
-6. Sustainability: https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/sustainability-pillar.html
+First we create a topic with aws command line:
 
-### Appendix: Questions and best practices
-https://docs.aws.amazon.com/wellarchitected/latest/framework/appendix.html
+```
+$ aws sns create-topic --name billing-alarm
+```
 
-## Conceptual diagram
-Create the diagram with Lucidchart tool to describe the functionality of what we plan to build during this bootcamp.
+The result can be seen on Amazon SNS:
+![TopicARN Created](../_docs/assets/journals/week0_alarm1-topicarn.jpg)
 
-==todo: add diagram image==
+Then we create a subscription with this TopicARN and email:
 
-## Architectural diagram
-Create the diagram with Lucidchart tool of the CI/CD logical pipeline.
+```
+$ aws sns subscribe \
+    --topic-arn [TopicARN] \
+    --protocol email \
+    --notification-endpoint [EMAIL]
+```
 
-==todo: add diagram image==
+This action create a subscription with pending state:
+![Subscription Created](../_docs/assets/journals/week0_alarm2-subscribe.jpg)
+
+The user will get an email with subscription request:
+![Subscription Request](../_docs/assets/journals/week0_alarm3-getmail.jpg)
+
+Request confirmation:
+![Subscription Confirmation](../_docs/assets/journals/week0_alarm4-confirmation.jpg)
+
+Then we can see that state changed to confirmed. The user now can received emails from this topic.
+![Subscription Confirmed](../_docs/assets/journals/week0_alarm5-accepted.jpg)
+
+### Alarm
+Documentation about monitor daily EstimatedCharges and trigger a CloudWatch alarm: https://aws.amazon.com/premiumsupport/knowledge-center/cloudwatch-estimatedcharges-alarm/ <br>
+Documentation about creating a metric alarm: https://docs.aws.amazon.com/cli/latest/reference/cloudwatch/put-metric-alarm.html
+
+First we need to create json file: **alarm-config**<br>
+We update json file with the TopicARN generated in SNS Topic step.<br>
+The next step is to create the alarm with aws command line:
+
+```
+$ aws cloudwatch put-metric-alarm --cli-input-json file://aws/json/alarm_config.json
+```
+
+The result can be observed in Amazon CloudWatch:
+![Alarm Created](../_docs/assets/journals/week0_alarm6-create.jpg)
 
 ## Budget and notifications
 
 Documentation about creating a budget with aws-cli: https://docs.aws.amazon.com/cli/latest/reference/budgets/create-budget.html
 
-First we need to create two json files: **budget.json** and **budget-notifications-with-subscribers.json**
-There are examples of this files on documentation above.
+First we need to create two json files: **budget.json** and **budget-notifications-with-subscribers.json**<br>
+There are examples of this files on documentation above.<br>
 Then we need AWS Account Id. Can be obtained from AWS Console or with aws command line:
 
 ```
@@ -143,3 +179,17 @@ $ aws budgets create-budget \
   --budget file://aws/json/budget.json \
   --notifications-with-suscribers file://aws/json/budget-notifications-with-subscribers.json
 ```
+
+
+## AWS Well-Architected Tool
+Review pillars to get involved with architectural best practices.
+
+1. Operational Excellence: https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/welcome.html
+2. Security: https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/welcome.html
+3. Reliability: https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html
+4. Performance Efficiency: https://docs.aws.amazon.com/wellarchitected/latest/performance-efficiency-pillar/welcome.html
+5. Cost Optimization: https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/welcome.html
+6. Sustainability: https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/sustainability-pillar.html
+
+### Appendix: Questions and best practices
+https://docs.aws.amazon.com/wellarchitected/latest/framework/appendix.html
