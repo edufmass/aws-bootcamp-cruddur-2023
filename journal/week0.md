@@ -29,19 +29,19 @@ This week we will set up AWS account, register in a few services needed to imple
 
 ![Secure root](../_docs/assets/journals/week0_aws1-secureroot.jpg)
 
-[Go to first sptes](#first-steps)
+[Go to first steps](#first-steps)
 
 ## Create AWS IAM user
 
 ![IAM User](../_docs/assets/journals/week0_aws2-adduser.jpg)
 
-[Go to first sptes](#first-steps)
+[Go to first steps](#first-steps)
 
 ## Secure IAM user account
 
 ![Secure IAM user](../_docs/assets/journals/week0_aws3-secureuser.jpg)
 
-[Go to first sptes](#first-steps)
+[Go to first steps](#first-steps)
 
 ## Draft & Conceptual diagram
 Application functionality of what we plan to build during this bootcamp. Handmade draft.
@@ -53,7 +53,7 @@ Application conceptual diagram done with Lucidchart tool.<br>
 
 ![Conceptual diagram](../_docs/assets/journals/week0_diagram-conceptual.jpg)
 
-[Go to first sptes](#first-steps)
+[Go to first steps](#first-steps)
 
 ## Logical Architectural diagram
 Application architectural diagram done with Lucidchart tool.<br>
@@ -61,13 +61,13 @@ Application architectural diagram done with Lucidchart tool.<br>
 
 ![Architectural diagram](../_docs/assets/journals/week0_diagram-architectural.jpg)
 
-[Go to first sptes](#first-steps)
+[Go to first steps](#first-steps)
 
 ## Architectural diagram of CI/CD logical pipeline
 
 ==todo: add diagram image===
 
-[Go to first sptes](#first-steps)
+[Go to first steps](#first-steps)
 
 ## Install aws-cli
 There are many options to work with aws-cli. **gitpod automatically** is the method that will be implemented.
@@ -149,7 +149,7 @@ gitpod /workspace $ cd $THEIA_WORKSPACE_ROOT
 
 Now aws configuration steps are required.
 
-[Go to first sptes](#first-steps)
+[Go to first steps](#first-steps)
 
 ## Create SNS Topic & Alarm
 
@@ -188,7 +188,7 @@ Request confirmation:
 Then we can see that state changed to confirmed. The user now can received emails from this topic.
 ![Subscription Confirmed](../_docs/assets/journals/week0_alarm5-accepted.jpg)
 
-[Go to first sptes](#first-steps)
+[Go to first steps](#first-steps)
 
 ### Alarm
 Documentation about monitor daily EstimatedCharges and trigger a CloudWatch alarm: https://aws.amazon.com/premiumsupport/knowledge-center/cloudwatch-estimatedcharges-alarm/ <br>
@@ -205,7 +205,7 @@ $ aws cloudwatch put-metric-alarm --cli-input-json file://aws/json/alarm_config.
 The result can be observed in Amazon CloudWatch:
 ![Alarm Created](../_docs/assets/journals/week0_alarm6-create.jpg)
 
-[Go to first sptes](#first-steps)
+[Go to first steps](#first-steps)
 
 ## Budget and notifications
 
@@ -228,7 +228,7 @@ $ aws budgets create-budget \
   --notifications-with-suscribers file://aws/json/budget-notifications-with-subscribers.json
 ```
 
-[Go to first sptes](#first-steps)
+[Go to first steps](#first-steps)
 
 ## AWS Well-Architected Tool
 Review pillars to get involved with architectural best practices.
@@ -243,4 +243,4 @@ Review pillars to get involved with architectural best practices.
 ### Appendix: Questions and best practices
 https://docs.aws.amazon.com/wellarchitected/latest/framework/appendix.html
 
-[Go to first sptes](#first-steps)
+[Go to first steps](#first-steps)
