@@ -58,6 +58,7 @@ $ aws sts get-caller-identity
     "Arn": "arn:aws:iam::[ACCOUNT_ID]:user/[NAME]"
 }
 ```
+![Test aws cli](../_docs/assets/journals/week00_aws-test-cli.jpg)
 
 ### On gitpod automatically
 We need to use this implementation to keep the changes when the workspace is closed and opened again.
