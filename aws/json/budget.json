@@ -19,9 +19,9 @@
         "UseAmortized": false,
         "UseBlended": false
     },
+    "TimeUnit": "MONTHLY",
     "TimePeriod": {
-        "Start": 1675209600000,
-        "End": 3706473600000
-    },
-    "TimeUnit": "Monthly"
+        "Start": "2023-01-31T21:00:00-03:00",
+        "End": "2087-06-14T21:00:00-03:00"
+    }
 }
