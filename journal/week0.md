@@ -20,7 +20,7 @@ This week we will set up AWS account, register in a few services needed to imple
 - [X] Create a free-tier Rollbar account (https://www.rollbar.com).
 
 ## Install aws-cli
-There are many options to work with aws-cli. **gitpod manually** is the method that will be implemented.
+There are many options to work with aws-cli. **gitpod automatically** is the method that will be implemented.
 
 ### On local machine
 Installing as a normal user following this commands:
@@ -76,7 +76,7 @@ tasks:
       cd $THEIA_WORKSPACE_ROOT
 ```
 
-Now aws configuration steps are required. To keep env variables to later use we have to replace **export** with **gp env***
+Now aws configuration steps are required. To keep env variables to later use we have to replace **export** with **gp env**
 
 ```
 $ gp env AWS_ACCESS_KEY_ID="[AWS_ACCESS_KEY]"
