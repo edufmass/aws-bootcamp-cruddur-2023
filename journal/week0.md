@@ -136,10 +136,12 @@ This action create a subscription with pending state:
 ![Subscription Created](../_docs/assets/journals/week0_alarm2-subscribe.jpg)
 
 The user will get an email with subscription request:
+
 ![Subscription Request](../_docs/assets/journals/week0_alarm3-getmail.jpg)
 
 Request confirmation:
-![Subscription Confirmation](../_docs/assets/journals/week0_alarm4-confirmation.jpg)
+
+![Subscription Confirmation](../_docs/assets/journals/week0_alarm4-confirm.jpg)
 
 Then we can see that state changed to confirmed. The user now can received emails from this topic.
 ![Subscription Confirmed](../_docs/assets/journals/week0_alarm5-accepted.jpg)
