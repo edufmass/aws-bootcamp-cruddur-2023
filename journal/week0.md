@@ -20,13 +20,67 @@ This week we will set up AWS account, register in a few services needed to imple
 - [X] Create a free-tier Rollbar account (https://www.rollbar.com).
 
 ## Install aws-cli
+There are many options to work with aws-cli.
 
-> curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-> unzip awscliv2.zip
-> cd aws
-> ./install -i ~/.local/aws-cli -b ~/.local/bin
+### On local machine
+Installing as a normal user following this commands:
 
-Re-login and command **aws** is available
+```
+$ curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+$ unzip awscliv2.zip
+$ cd aws
+$ ./install -i ~/.local/aws-cli -b ~/.local/bin
+```
+
+Re-login and command **aws** is available.
+Now is time to configure aws-cli
+
+```
+$ aws configure
+AWS Access Key ID [None]: [AWS_ACCESS_KEY]
+AWS Secret Access Key [None]: [AWS_SECRET_ACCESS_KEY]
+Default region name [None]: [AWS_REGION]
+Default output format [None]: 
+$ aws sts get-caller-identity
+{
+    "UserId": "[USER_ID]",
+    "Account": "[ACCOUNT_ID]",
+    "Arn": "arn:aws:iam::[ACCOUNT_ID]:user/[NAME]"
+}
+
+```
+
+### On gitpod automatically
+Installing with a task adding the following in .gitpod.yml:
+
+```
+task:
+  - name: aws-cli
+    env:
+      AWS_CLI_AUTO_PROMPT: on-partial
+    init: |
+      cd /workspace
+      curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+      unzip awscliv2.zip
+      sudo ./aws/install
+      cd $THEIA_WORKSPACE_ROOT
+```
+
+Now aws configuration steps are required.
+
+### On gitpod manually
+Installing following this commands on gitpod terminal:
+
+```
+gitpod /workspace/aws-bootcamp-cruddur-2023 (main) $ cd
+gitpod ~ $ cd /workspace
+gitpod /workspace $ curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+gitpod /workspace $ unzip awscliv2.zip
+gitpod /workspace $ sudo ./aws/install
+gitpod /workspace $ cd $THEIA_WORKSPACE_ROOT
+```
+Now aws configuration steps are required.
+
 
 ## AWS Well-Architected Tool
 Review pillars to get involved with architectural best practices.
