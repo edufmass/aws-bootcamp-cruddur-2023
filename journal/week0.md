@@ -19,10 +19,15 @@ This week we will set up AWS account, register in a few services needed to imple
 - [X] Create a free-tier Honeycomb account (https://www.honeycomb.io).
 - [X] Create a free-tier Rollbar account (https://www.rollbar.com).
 
-## Conceptual diagram
-Create the diagram with Lucidchart tool to describe the functionality of what we plan to build during this bootcamp.
+## Draft & Conceptual diagram
+Application functionality of what we plan to build during this bootcamp. Handmade draft.
 
-==todo: add diagram image==
+![Handmade draft](../_docs/assets/journals/week0_diagram-napkin.jpg)
+
+Application conceptual diagram done with Lucidchart tool.<br>
+[Conceptual diagram](https://lucid.app/lucidchart/180975ca-39a8-46b8-819b-ef3b739c2e84/edit?viewport_loc=-697%2C-279%2C2219%2C1079%2C0_0&invitationId=inv_af5c5e86-1b85-4256-8f4e-59f8ce56e120)
+
+![Conceptual diagram](../_docs/assets/journals/week0_diagram-conceptual.jpg)
 
 ## Logical Architectural diagram
 Application architectural diagram done with Lucidchart tool.<br>
