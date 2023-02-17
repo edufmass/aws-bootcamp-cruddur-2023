@@ -6,11 +6,13 @@ This week we will set up AWS account, register in a few services needed to imple
 
 ## First steps
 
-- [x] **Create an AWS account**: done by the organization that I belongs to (https://aws.amazon.com).
-- [x] **Create an AWS IAM user**: added by organization's administrator.
-- [x] **Create a billing alarm**: configured by organization's administrator.
-- [x] **Create a budget**: assigned by organization's administrator.
-- [x] Open a support ticket and request a service limit at *AWS Console -> Support center -> Create case -> Looking for service limit increases?*.
+- [x] [Create an AWS account](#create-an-AWS-account-and-secure-root-account). (https://aws.amazon.com).
+- [x] [Secure root account](#create-an-aws-account-and-secure-root-account).
+- [x] [Create an AWS IAM user](#create-aws-iam-user).
+- [x] [Secure IAM user account](#secure-iam-user-account).
+- [x] [Create a billing alarm](#create-sns-topic--alarm).
+- [x] [Create a budget](#budget-and-notifications).
+- [ ] Open a support ticket and request a service limit at *AWS Console -> Support center -> Create case -> Looking for service limit increases?*.
 - [X] Create a Github repository (https://www.github.com).
 - [X] Login into Gitpod with github account and create a Gitpod workspace (https://www.gitpod.io).
 - [x] Explore github.com/codespaces as an alternative of a CDE.
@@ -18,6 +20,28 @@ This week we will set up AWS account, register in a few services needed to imple
 - [X] Create Lucidchart account (https://www.lucidchart.com).
 - [X] Create a free-tier Honeycomb account (https://www.honeycomb.io).
 - [X] Create a free-tier Rollbar account (https://www.rollbar.com).
+- [x] [Draft & conceptual diagram](#draft--conceptual-diagram).
+- [x] [Logical Architectural diagram](#logical-architectural-diagram).
+- [ ] [CI/CD Pipeline diagram](#architectural-diagram-of-cicd-logical-pipeline).
+- [x] [Review all the questions of each pillars in the Well Architected Tool](#aws-well-architected-tool).
+
+## Create an AWS account and secure root account.
+
+![Secure root](../_docs/assets/journals/week0_aws1-secureroot.jpg)
+
+[Go to first sptes](#first-steps)
+
+## Create AWS IAM user
+
+![IAM User](../_docs/assets/journals/week0_aws2-adduser.jpg)
+
+[Go to first sptes](#first-steps)
+
+## Secure IAM user account
+
+![Secure IAM user](../_docs/assets/journals/week0_aws3-secureuser.jpg)
+
+[Go to first sptes](#first-steps)
 
 ## Draft & Conceptual diagram
 Application functionality of what we plan to build during this bootcamp. Handmade draft.
@@ -29,15 +53,21 @@ Application conceptual diagram done with Lucidchart tool.<br>
 
 ![Conceptual diagram](../_docs/assets/journals/week0_diagram-conceptual.jpg)
 
+[Go to first sptes](#first-steps)
+
 ## Logical Architectural diagram
 Application architectural diagram done with Lucidchart tool.<br>
 [Architectural diagram](https://lucid.app/lucidchart/bfc979f9-1407-4586-9006-694825740f7f/edit?viewport_loc=125%2C108%2C2219%2C1079%2C0_0&invitationId=inv_17a61a89-4d6b-444c-99c0-acbc7c45b727)
 
 ![Architectural diagram](../_docs/assets/journals/week0_diagram-architectural.jpg)
 
+[Go to first sptes](#first-steps)
+
 ## Architectural diagram of CI/CD logical pipeline
 
 ==todo: add diagram image===
+
+[Go to first sptes](#first-steps)
 
 ## Install aws-cli
 There are many options to work with aws-cli. **gitpod automatically** is the method that will be implemented.
@@ -119,6 +149,8 @@ gitpod /workspace $ cd $THEIA_WORKSPACE_ROOT
 
 Now aws configuration steps are required.
 
+[Go to first sptes](#first-steps)
+
 ## Create SNS Topic & Alarm
 
 ### SNS Topic
@@ -156,6 +188,8 @@ Request confirmation:
 Then we can see that state changed to confirmed. The user now can received emails from this topic.
 ![Subscription Confirmed](../_docs/assets/journals/week0_alarm5-accepted.jpg)
 
+[Go to first sptes](#first-steps)
+
 ### Alarm
 Documentation about monitor daily EstimatedCharges and trigger a CloudWatch alarm: https://aws.amazon.com/premiumsupport/knowledge-center/cloudwatch-estimatedcharges-alarm/ <br>
 Documentation about creating a metric alarm: https://docs.aws.amazon.com/cli/latest/reference/cloudwatch/put-metric-alarm.html
@@ -170,6 +204,8 @@ $ aws cloudwatch put-metric-alarm --cli-input-json file://aws/json/alarm_config.
 
 The result can be observed in Amazon CloudWatch:
 ![Alarm Created](../_docs/assets/journals/week0_alarm6-create.jpg)
+
+[Go to first sptes](#first-steps)
 
 ## Budget and notifications
 
@@ -192,6 +228,7 @@ $ aws budgets create-budget \
   --notifications-with-suscribers file://aws/json/budget-notifications-with-subscribers.json
 ```
 
+[Go to first sptes](#first-steps)
 
 ## AWS Well-Architected Tool
 Review pillars to get involved with architectural best practices.
@@ -205,3 +242,5 @@ Review pillars to get involved with architectural best practices.
 
 ### Appendix: Questions and best practices
 https://docs.aws.amazon.com/wellarchitected/latest/framework/appendix.html
+
+[Go to first sptes](#first-steps)
