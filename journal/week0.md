@@ -24,10 +24,15 @@ Create the diagram with Lucidchart tool to describe the functionality of what we
 
 ==todo: add diagram image==
 
-## Architectural diagram
-Create the diagram with Lucidchart tool of the CI/CD logical pipeline.
+## Logical Architectural diagram
+Application architectural diagram done with Lucidchart tool.<br>
+[Architectural diagram](https://lucid.app/lucidchart/bfc979f9-1407-4586-9006-694825740f7f/edit?viewport_loc=125%2C108%2C2219%2C1079%2C0_0&invitationId=inv_17a61a89-4d6b-444c-99c0-acbc7c45b727)
 
-==todo: add diagram image==
+![Architectural diagram](../_docs/assets/journals/week0_diagram-architectural.jpg)
+
+## Architectural diagram of CI/CD logical pipeline
+
+==todo: add diagram image===
 
 ## Install aws-cli
 There are many options to work with aws-cli. **gitpod automatically** is the method that will be implemented.
