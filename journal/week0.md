@@ -33,21 +33,30 @@ $ ./install -i ~/.local/aws-cli -b ~/.local/bin
 ```
 
 Re-login and command **aws** is available.
-Now is time to configure aws-cli
+Now is time to configure aws-cli with ENV VARS or aws command:
 
 ```
+$ export AWS_ACCESS_KEY_ID=[AWS_ACCESS_KEY]
+$ export AWS_SECRET_ACCESS_KEY_ID=[AWS_SECRET_ACCESS_KEY]
+$ export AWS_DEFAULT_REGION=[AWS_REGION]
+
+or 
+
 $ aws configure
 AWS Access Key ID [None]: [AWS_ACCESS_KEY]
 AWS Secret Access Key [None]: [AWS_SECRET_ACCESS_KEY]
 Default region name [None]: [AWS_REGION]
 Default output format [None]: 
+```
+Test configuration:
+
+```
 $ aws sts get-caller-identity
 {
     "UserId": "[USER_ID]",
     "Account": "[ACCOUNT_ID]",
     "Arn": "arn:aws:iam::[ACCOUNT_ID]:user/[NAME]"
 }
-
 ```
 
 ### On gitpod automatically
