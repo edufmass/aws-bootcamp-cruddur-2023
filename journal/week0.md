@@ -12,6 +12,7 @@ This week we will set up AWS account, register in a few services needed to imple
 - [x] [Secure IAM user account](#secure-iam-user-account).
 - [x] [Create a billing alarm](#create-sns-topic--alarm).
 - [x] [Create a budget](#budget-and-notifications).
+- [x] [Create EventBridge rule for a service health issue](#create-eventbridge-rule-for-a-service-health-issue).
 - [ ] Open a support ticket and request a service limit at *AWS Console -> Support center -> Create case -> Looking for service limit increases?*.
 - [X] Create a Github repository (https://www.github.com).
 - [X] Login into Gitpod with github account and create a Gitpod workspace (https://www.gitpod.io).
@@ -227,6 +228,22 @@ $ aws budgets create-budget \
   --budget file://aws/json/budget.json \
   --notifications-with-suscribers file://aws/json/budget-notifications-with-subscribers.json
 ```
+
+[Go to first steps](#first-steps)
+
+## Create EventBridge rule for a service health issue
+
+As we did for the [billing alarm](#sns-topic) we need to create a topic to be able to subscribe for email notifications.
+
+![Secure root](../_docs/assets/journals/week0_health1-topic.jpg)
+
+The we create an EventBridge rule associated to **aws.health** events.
+
+![Secure root](../_docs/assets/journals/week0_health2-eventbridgerule.jpg)
+
+The target is the SNS topic that we created before.
+
+![Secure root](../_docs/assets/journals/week0_health3-eventbridgeruletarget.jpg)
 
 [Go to first steps](#first-steps)
 
