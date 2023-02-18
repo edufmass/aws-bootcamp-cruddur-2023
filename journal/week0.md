@@ -65,8 +65,10 @@ Application architectural diagram done with Lucidchart tool.<br>
 [Go to first steps](#first-steps)
 
 ## Architectural diagram of CI/CD logical pipeline
+Initial CI/CD pipeline diagram based on AWS services.<br>
+[CI/CD pipeline diagram](https://lucid.app/lucidchart/229d7244-3a89-4f97-9c20-24420ae6d0b1/edit?viewport_loc=319%2C92%2C2177%2C1079%2C0_0&invitationId=inv_f5ee0d6c-ef00-4ea2-aa82-f2e86dfdb50e)
 
-==todo: add diagram image===
+![CI/CD pipeline diagram](../_docs/assets/journals/week0_diagram-cicd.jpg)
 
 [Go to first steps](#first-steps)
 
