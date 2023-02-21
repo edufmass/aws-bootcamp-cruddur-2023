@@ -1,0 +1,10 @@
+{
+    "explorer.autoReveal": false,
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "workbench.tree.indent": 25,
+    "workbench.tree.renderIndentGuides": "always",
+    "workbench.colorCustomizations": {
+        "tree.indentGuidesStroke": "#f55fed"
+    }
+}
