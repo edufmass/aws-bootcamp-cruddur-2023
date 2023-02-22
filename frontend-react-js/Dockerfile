@@ -1,5 +1,6 @@
 #FROM node:16.18 -> Removed by Snyk recommendation
-FROM node:19.6.0-bullseye-slim
+#FROM node:19.6.0-bullseye-slim
+FROM node:19.6.1
 
 ENV PORT=3000
 
