@@ -1,6 +1,8 @@
 #FROM python:3.10-slim-buster -> Removed by Snyk recommendation
 FROM python:3.12.0a5-slim
 
+RUN apt-get update \
+ && apt-get install -y curl
 WORKDIR /backend-flask
 
 COPY requirements.txt requirements.txt
