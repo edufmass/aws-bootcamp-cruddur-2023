@@ -27,6 +27,7 @@ This week we will run Cruddur application with containers using Docker platform.
 - [x] [Push and tag a image to DockerHub](#push-and-tag-a-image-to-dockerhub).
 - [x] [Use multi-stage building for a Dockerfile build](#use-multi-stage-building-for-a-dockerfile-build).
 - [x] [Implement a healthcheck in the V3 Docker compose file](#implement-a-healthcheck-in-the-v3-docker-compose-file)
+- -[X] [SOLVED] [Problem with backend container healthcheck](#problem-with-backend-container-healthcheck).
 - [x] Research best practices of Dockerfiles and attempt to implement it in your Dockerfile
 - [x] [Install Docker on your localmachine and get the same containers running](#install-docker-on-your-localmachine-and-get-the-same-containers-running).
 - [x] [Launch an EC2 instance, install docker, pull a container and run docker processes](#launch-an-ec2-instance-install-docker-pull-a-container-and-run-docker-processes).
@@ -899,6 +900,73 @@ In the screenshot you can see that after a moment the container is tested to det
 ![Healthcheck](../_docs/assets/journals/week01_healthcheck.jpg)
 
 [Go to first steps](#homework)
+
+### Problem with backend container healthcheck
+
+I updated **docker-compose.yaml** to add healthcheck of backend container: [commit](https://github.com/edufmass/aws-bootcamp-cruddur-2023/blob/4b5604457b3eff3f0db08fc83251ec94f36be365/docker-compose.yaml)
+
+```
+ backend-flask:
+    environment:
+      FRONTEND_URL: "https://3000-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
+      BACKEND_URL: "https://4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
+    build: ./backend-flask     
+    ports:
+      - "4567:4567"
+    volumes:
+      - ./backend-flask:/backend-flask
+    healthcheck:
+      test: curl --fail https://4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}/api/activities/home || exit 1
+      interval: 60s
+      retries: 5
+      start_period: 20s
+      timeout: 10s
+```
+
+I was getting unhelathy and couldn't understand why because the container did work.
+
+![Healthcheck back1](../_docs/assets/journals/week01_healthcheck-back1.jpg)
+
+After reading a lot I came across the following command:
+
+```
+$ docker inspect --format "{{json .State.Health }}" [container_name] | jq
+
+$ docker inspect --format "{{json .State.Health }}" aws-bootcamp-cruddur-2023-backend-flask-1 | jq
+```
+
+![Healthcheck back2](../_docs/assets/journals/week01_healthcheck-back2.jpg)
+
+I discovered that I had a problem with **curl** in backend container.<br>
+I updated **/backend-flask/Dockerfile** to install curl in the container: [commit](https://github.com/edufmass/aws-bootcamp-cruddur-2023/blob/4b5604457b3eff3f0db08fc83251ec94f36be365/backend-flask/Dockerfile)
+
+```
+#FROM python:3.10-slim-buster -> Removed by Snyk recommendation
+FROM python:3.12.0a5-slim
+
+RUN apt-get update \
+ && apt-get install -y curl
+WORKDIR /backend-flask
+
+COPY requirements.txt requirements.txt
+RUN pip3 install -r requirements.txt
+
+COPY . .
+
+ENV FLASK_ENV=developent
+
+EXPOSE ${PORT}
+#python3 -m flask run --host=.0.0.0.0 --port=4567
+CMD ["python3", "-m", "flask", "run", "--host=0.0.0.0", "--port=4567"]
+#RUN chmod +x backend.sh
+#RUN ./backend.sh
+```
+
+![Healthcheck back3](../_docs/assets/journals/week01_healthcheck-back3.jpg)
+
+After running docker compose I could healtcheck both containers with success:
+
+![Healthcheck back4](../_docs/assets/journals/week01_healthcheck-back4.jpg)
 
 ## Install Docker on your localmachine and get the same containers running
 
