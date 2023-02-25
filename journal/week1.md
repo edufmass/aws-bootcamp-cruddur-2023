@@ -28,8 +28,9 @@ This week we will run Cruddur application with containers using Docker platform.
 - [x] [Use multi-stage building for a Dockerfile build](#use-multi-stage-building-for-a-dockerfile-build).
 - [x] [Implement a healthcheck in the V3 Docker compose file](#implement-a-healthcheck-in-the-v3-docker-compose-file)
 - [x] Research best practices of Dockerfiles and attempt to implement it in your Dockerfile
-- [x] [Launch an EC2 instance, install docker, pull a container and run docker processes](#launch-an-ec2-instance-install-docker-pull-a-container-and-run-docker-processes).
 - [x] [Install Docker on your localmachine and get the same containers running](#install-docker-on-your-localmachine-and-get-the-same-containers-running).
+- [x] [Launch an EC2 instance, install docker, pull a container and run docker processes](#launch-an-ec2-instance-install-docker-pull-a-container-and-run-docker-processes).
+
 
 ## Launch the repo within a Gitpod workspace.
 
@@ -889,6 +890,38 @@ In the screenshot you can see that after a moment the container is tested to det
 
 [Go to first steps](#homework)
 
+## Install Docker on your localmachine and get the same containers running
+
+Steps to install docker in localmachine using Debian Linux :
+
+```
+$ sudo apt install ca-certificates curl gnupg lsb-release
+
+$ sudo mkdir -m 0755 -p /etc/apt/keyrings
+
+$ curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+
+$ echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
+   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+$ sudo apt update
+
+$ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
+
+After installing docker you can add your user to **docker** group to run it without sudo:
+
+```
+$ usermod -aG docker [your_user]
+```
+
+Now you can test your project in localmachinte:
+
+![](../_docs/assets/journals/week01_local1-dockerup.jpg)
+![](../_docs/assets/journals/week01_local2-running.jpg)
+
+[Go to first steps](#homework)
+
 ## Launch an EC2 instance, install docker, pull a container and run docker processes
 
 EC2 instance is created in AWS Console:
@@ -909,7 +942,11 @@ $ ssh -i "[file_key].pem" [user]@[ec2-instance-domain]
 
 ![EC2 login](../_docs/assets/journals/week01_ec2instance3-sshlogin.jpg)
 
-Pull images previously uploaded into Docker hub:
+Docker is installed following the same [steps](#install-docker-on-your-localmachine-and-get-the-same-containers-running) followed for install in localmachine. EC2 instance has Debian Linux installed.<br>
+
+<br>
+
+Then pull images previously uploaded into Docker hub:
 
 ```
 $ docker pull [image_name]:[tag]
@@ -932,14 +969,5 @@ $ docker compose up -d
 Verify that application is running in AWS EC2 instance:
 
 ![EC2 running](../_docs/assets/journals/week01_ec2instance7-running.jpg)
-
-[Go to first steps](#homework)
-
-## Install Docker on your localmachine and get the same containers running
-
-Docker is installed following the same [steps](#launch-an-ec2-instance-install-docker-pull-a-container-and-run-docker-processes) followed for install in EC2 instance.
-
-![](../_docs/assets/journals/week01_local1-dockerup.jpg)
-![](../_docs/assets/journals/week01_local2-running.jpg)
 
 [Go to first steps](#homework)
