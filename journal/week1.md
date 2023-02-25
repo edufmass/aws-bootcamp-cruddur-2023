@@ -923,7 +923,7 @@ I updated **docker-compose.yaml** to add healthcheck of backend container: [comm
       timeout: 10s
 ```
 
-I was getting unhelathy and couldn't understand why because the container did work.
+I was getting unhealthy and couldn't understand why because the container did work.
 
 ![Healthcheck back1](../_docs/assets/journals/week01_healthcheck-back1.jpg)
 
@@ -964,7 +964,7 @@ CMD ["python3", "-m", "flask", "run", "--host=0.0.0.0", "--port=4567"]
 
 ![Healthcheck back3](../_docs/assets/journals/week01_healthcheck-back3.jpg)
 
-After running docker compose I could healtcheck both containers with success:
+After running docker compose I could healthcheck both containers with success:
 
 ![Healthcheck back4](../_docs/assets/journals/week01_healthcheck-back4.jpg)
 
