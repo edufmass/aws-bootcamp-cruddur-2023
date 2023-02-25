@@ -27,7 +27,7 @@ This week we will run Cruddur application with containers using Docker platform.
 - [x] [Push and tag a image to DockerHub](#push-and-tag-a-image-to-dockerhub).
 - [x] [Use multi-stage building for a Dockerfile build](#use-multi-stage-building-for-a-dockerfile-build).
 - [x] [Implement a healthcheck in the V3 Docker compose file](#implement-a-healthcheck-in-the-v3-docker-compose-file)
-- -[X] [SOLVED] [Problem with backend container healthcheck](#problem-with-backend-container-healthcheck).
+- - [X] [SOLVED] [Problem with backend container healthcheck](#problem-with-backend-container-healthcheck).
 - [x] Research best practices of Dockerfiles and attempt to implement it in your Dockerfile
 - [x] [Install Docker on your localmachine and get the same containers running](#install-docker-on-your-localmachine-and-get-the-same-containers-running).
 - [x] [Launch an EC2 instance, install docker, pull a container and run docker processes](#launch-an-ec2-instance-install-docker-pull-a-container-and-run-docker-processes).
