@@ -338,9 +338,11 @@ Volumes map local directory with directory inside container. We can persist data
 After watching the video about security considerations we analized the project with Snyk tool. ([snyk.io](https://snyk.io/))
 
 First we sign up and link to our github account to select a repository.
+
 ![Snyk link](../_docs/assets/journals/week01_snyk1-link.jpg)
 
 In dashboard we can see a resume of the status of our project.
+
 ![Snyk list](../_docs/assets/journals/week01_snyk2-list.jpg)
 
 Then in detail we can see the suggestions to fix our security issues.
@@ -360,6 +362,7 @@ CMD ["npm", "start"]
 ```
 
 After applying the suggestions, the security of our project improved.
+
 ![Snyk final](../_docs/assets/journals/week01_snyk3-final.jpg)
 
 [Go to first steps](#homework)
@@ -638,6 +641,7 @@ $ aws dynamodb create-table \
     --provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1 \
     --table-class STANDARD
 ```
+
 ![DBs DynamoDB](../_docs/assets/journals/week01_dbs3-dyna-createtable.jpg)
 
 Next we insert an item:
@@ -650,6 +654,7 @@ $ aws dynamodb put-item \
         '{"Name": {"S": "Eduardo"}, "Location": {"S": "Argentina"}, "github": {"S": "edufmass"}}' \
     --return-consumed-capacity TOTAL  
 ```
+
 ![DBs DynamoDB](../_docs/assets/journals/week01_dbs4-dyna-putitem.jpg)
 
 Then we list tables and query items:
@@ -659,6 +664,7 @@ $ aws dynamodb list-tables --endpoint-url http://localhost:8000
 
 $ aws dynamodb scan --table-name edufmass-test --query "Items" --endpoint-url http://localhost:8000
 ```
+
 ![DBs DynamoDB](../_docs/assets/journals/week01_dbs5-dyna-listtableitems.jpg)
 
 [Go to first steps](#homework)
@@ -779,6 +785,7 @@ Lastly for safety logout from docker:
 ```
 $ docker logout
 ```
+
 ![Dockerhub ](../_docs/assets/journals/week01_dockerhub7-logout.jpg)
 
 [Go to first steps](#homework)
@@ -802,6 +809,7 @@ Before configuring multi-stage lets check the size of the images. Frontend image
 
 Change the execution of react application into build application.<br>
 Update **/frontend-react-js/frontend.sh**: [commit](https://github.com/edufmass/aws-bootcamp-cruddur-2023/blob/af3e60b0f5bf8e8201be0898f5ab200e52215d28/frontend-react-js/frontend.sh)
+
 ```
 #!/bin/sh
 #npm start
@@ -810,6 +818,7 @@ npm run build
 
 Since we changed execution into building, the app will not be served by *npm start*. Now Nginx will serve the application using the built app from previous stage.<br>
 Update **/frontend-react-js/Dockerfile**: [commit](https://github.com/edufmass/aws-bootcamp-cruddur-2023/blob/af3e60b0f5bf8e8201be0898f5ab200e52215d28/frontend-react-js/Dockerfile)
+
 ```
 #FROM node:16.18 -> Removed by Snyk recommendation
 #FROM node:19.6.0-bullseye-slim
@@ -855,6 +864,7 @@ Now build and test new configurations (delete previous images with *docker rmi*)
 ```
 $ docker compose up
 ```
+
 ![Multistage building](../_docs/assets/journals/week01_multistage2-building.jpg)
 
 Now lets check the size of the images. Frontend image size is **144MB**:
