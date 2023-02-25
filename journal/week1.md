@@ -964,7 +964,7 @@ CMD ["python3", "-m", "flask", "run", "--host=0.0.0.0", "--port=4567"]
 
 ![Healthcheck back3](../_docs/assets/journals/week01_healthcheck-back3.jpg)
 
-After running docker compose I could healthcheck both containers with success:
+After running docker compose I could health check both containers with success:
 
 ![Healthcheck back4](../_docs/assets/journals/week01_healthcheck-back4.jpg)
 
